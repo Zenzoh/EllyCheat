@@ -13,7 +13,8 @@ public class CPSCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String name, String[] args) {
-        if (name.equalsIgnoreCase("cps")) {
+        String cmd = command.getName();
+        if (cmd.equalsIgnoreCase("cps")) {
             if (args.length >= 1) {
                 Player player = Bukkit.getPlayer(args[0]);
                 if (player != null) {
