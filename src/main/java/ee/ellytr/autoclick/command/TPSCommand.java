@@ -12,7 +12,7 @@ public class TPSCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String name, String[] args) {
         String cmd = command.getName();
         if (cmd.equalsIgnoreCase("tps")) {
-            sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "!" + ChatColor.GRAY + "] " + "The server is currently running " + ChatColor.AQUA + TPSTracker.getTPS() + ChatColor.GRAY + " TPS.");
+            sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "!" + ChatColor.GRAY + "] " + "The server is currently running at " + ChatColor.AQUA + Math.round(TPSTracker.getTPS() * 100.0) / 100.0 + ChatColor.GRAY + " TPS.");
         }
         return true;
     }

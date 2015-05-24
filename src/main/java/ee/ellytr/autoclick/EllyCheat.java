@@ -25,8 +25,8 @@ public class EllyCheat extends JavaPlugin {
         getCommand("tps").setExecutor(new TPSCommand());
 
         Bukkit.getScheduler().runTask(this, new TPSTick());
-        Bukkit.getScheduler().runTaskLater(this, new CPSRunnable(), 20);
-        Bukkit.getScheduler().runTaskLater(this, new TPSRunnable(), 20);
+        Bukkit.getScheduler().runTaskLaterAsynchronously(this, new CPSRunnable(), 20);
+        Bukkit.getScheduler().runTaskLaterAsynchronously(this, new TPSRunnable(), 20);
     }
 
     @Override

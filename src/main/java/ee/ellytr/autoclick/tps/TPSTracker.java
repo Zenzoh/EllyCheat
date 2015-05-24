@@ -2,17 +2,15 @@ package ee.ellytr.autoclick.tps;
 
 public class TPSTracker {
 
-    private static int currentTicks = 0;
-    private static int tps = 0;
+    private static double lastTick = System.nanoTime();
+    private static double tps = 0;
 
     public static void tick() {
-        currentTicks ++;
-    }
-
-    public static void refresh() {
-        tps = currentTicks;
-
-        currentTicks = 0;
+        try {
+            tps = 1 / ((System.nanoTime() - lastTick) / 1000000000.0);
+        } catch (ArithmeticException e) {
+        }
+        lastTick = System.nanoTime();
     }
 
     public static double getTPS() {

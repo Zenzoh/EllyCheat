@@ -12,28 +12,28 @@ public class CPSRunnable implements Runnable {
         CPSTracker.refresh();
         for (Player player1 : Bukkit.getOnlinePlayers()) {
             double cps = CPSTracker.getLeftCPS(player1.getUniqueId());
-            if (cps >= EllyCheat.getInstance().getConfig().getInt("click-warning")) {
+            if (cps >= EllyCheat.getInstance().getConfig().getInt("cps-warning")) {
                 for (Player player2 : Bukkit.getOnlinePlayers()) {
                     if (player2.hasPermission("ellycheat.cps.warning")) {
-                        player2.sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "!" + ChatColor.GRAY + "] " + player1.getName() + "'s CPS is " + ChatColor.GOLD + cps + "! " + ChatColor.GRAY + "(left click)");
+                        player2.sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "!" + ChatColor.GRAY + "] " + player1.getName() + " has " + ChatColor.GOLD + cps + ChatColor.GRAY + " CPS! (left click)");
                     }
                 }
                 if (EllyCheat.getInstance().getConfig().getBoolean("log-warnings")) {
-                    Bukkit.getConsoleSender().sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "!" + ChatColor.GRAY + "] " + player1.getName() + "'s CPS is " + ChatColor.GOLD + cps + "! " + ChatColor.GRAY + "(left click)");
+                    Bukkit.getConsoleSender().sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "!" + ChatColor.GRAY + "] " + player1.getName() + " has " + ChatColor.GOLD + cps + ChatColor.GRAY + " CPS! (left click)");
                 }
             }
             cps = CPSTracker.getRightCPS(player1.getUniqueId());
-            if (cps >= EllyCheat.getInstance().getConfig().getInt("click-warning")) {
+            if (cps >= EllyCheat.getInstance().getConfig().getInt("cps-warning")) {
                 for (Player player2 : Bukkit.getOnlinePlayers()) {
                     if (player2.hasPermission("ellycheat.cps.warning")) {
-                        player2.sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "!" + ChatColor.GRAY + "] " + player1.getName() + "'s CPS is " + ChatColor.GOLD + cps + "! " + ChatColor.GRAY + "(right click)");
+                        player2.sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "!" + ChatColor.GRAY + "] " + player1.getName() + " has " + ChatColor.GOLD + cps + ChatColor.GRAY + " CPS! (right click)");
                     }
                 }
                 if (EllyCheat.getInstance().getConfig().getBoolean("log-warnings")) {
-                    Bukkit.getConsoleSender().sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "!" + ChatColor.GRAY + "] " + player1.getName() + "'s CPS is " + ChatColor.GOLD + cps + "! " + ChatColor.GRAY + "(right click)");
+                    Bukkit.getConsoleSender().sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "!" + ChatColor.GRAY + "] " + player1.getName() + " has " + ChatColor.GOLD + cps + ChatColor.GRAY + " CPS! (right click)");
                 }
             }
         }
-        Bukkit.getScheduler().runTaskLater(EllyCheat.getInstance(), this, 20);
+        Bukkit.getScheduler().runTaskLaterAsynchronously(EllyCheat.getInstance(), this, 20);
     }
 }
