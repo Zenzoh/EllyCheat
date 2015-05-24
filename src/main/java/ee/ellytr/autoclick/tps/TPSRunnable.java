@@ -1,12 +1,9 @@
 package ee.ellytr.autoclick.tps;
 
 import ee.ellytr.autoclick.EllyCheat;
-import ee.ellytr.autoclick.cps.CPSTracker;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-
-import java.math.BigDecimal;
 
 public class TPSRunnable implements Runnable {
 

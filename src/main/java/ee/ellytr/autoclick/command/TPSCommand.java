@@ -1,6 +1,7 @@
 package ee.ellytr.autoclick.command;
 
 import ee.ellytr.autoclick.tps.TPSTracker;
+import ee.ellytr.autoclick.utils.MessageUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,7 +13,11 @@ public class TPSCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String name, String[] args) {
         String cmd = command.getName();
         if (cmd.equalsIgnoreCase("tps")) {
-            sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "!" + ChatColor.GRAY + "] " + "The server is currently running at " + ChatColor.AQUA + Math.round(TPSTracker.getTPS() * 100.0) / 100.0 + ChatColor.GRAY + " TPS.");
+            if (sender.hasPermission("ellycheat.tps.command")) {
+                sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "!" + ChatColor.GRAY + "] " + "The server is currently running at " + ChatColor.AQUA + Math.round(TPSTracker.getTPS() * 100.0) / 100.0 + ChatColor.GRAY + " TPS.");
+            } else {
+                MessageUtils.sendErrorMessage(sender, "You don't have permission.");
+            }
         }
         return true;
     }

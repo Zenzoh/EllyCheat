@@ -15,18 +15,22 @@ public class CPSCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String name, String[] args) {
         String cmd = command.getName();
         if (cmd.equalsIgnoreCase("cps")) {
-            if (args.length >= 1) {
-                Player player = Bukkit.getPlayer(args[0]);
-                if (player != null) {
-                    sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "!" + ChatColor.GRAY + "] " + player.getName() + "'s CPS:");
-                    sender.sendMessage(ChatColor.GRAY + "  Left Click: " + ChatColor.AQUA + CPSTracker.getLeftCPS(player.getUniqueId()));
-                    sender.sendMessage(ChatColor.GRAY + "  Right Click: " + ChatColor.AQUA + CPSTracker.getRightCPS(player.getUniqueId()));
+            if (sender.hasPermission("ellycheat.cps.command")) {
+                if (args.length >= 1) {
+                    Player player = Bukkit.getPlayer(args[0]);
+                    if (player != null) {
+                        sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "!" + ChatColor.GRAY + "] " + player.getName() + "'s CPS:");
+                        sender.sendMessage(ChatColor.GRAY + "  Left Click: " + ChatColor.AQUA + CPSTracker.getLeftCPS(player.getUniqueId()));
+                        sender.sendMessage(ChatColor.GRAY + "  Right Click: " + ChatColor.AQUA + CPSTracker.getRightCPS(player.getUniqueId()));
+                    } else {
+                        MessageUtils.sendErrorMessage(sender, "Player specified not found.");
+                    }
                 } else {
-                    MessageUtils.sendErrorMessage(sender, "Player specified not found.");
+                    MessageUtils.sendErrorMessage(sender, "Too few arguments.");
+                    return false;
                 }
             } else {
-                MessageUtils.sendErrorMessage(sender, "Too few arguments.");
-                return false;
+                MessageUtils.sendErrorMessage(sender, "You don't have permission.");
             }
         }
         return true;
