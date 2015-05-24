@@ -1,0 +1,13 @@
+name: EllyCheat
+version: 0.1-SNAPSHOT
+description: A plugin to help assist with autoclick detection.
+authors: [Elly]
+main: ee.ellytr.autoclick.EllyCheat
+prefix: EC
+commands:
+  tps:
+    description: The current TPS (ticks per second) of the server.
+    usage: /tps
+  cps:
+    description: The current CPS (clicks per second) of a player.
+    usage: /cps <player>
