@@ -2,7 +2,7 @@ package ee.ellytr.autoclick.command;
 
 import ee.ellytr.autoclick.tps.TPSTracker;
 import ee.ellytr.autoclick.utils.MessageUtils;
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

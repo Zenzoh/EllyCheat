@@ -6,8 +6,10 @@ main: ee.ellytr.autoclick.EllyCheat
 prefix: EC
 commands:
   tps:
+    aliases: [tickspersecond]
     description: The current TPS (ticks per second) of the server.
     usage: /tps
   cps:
+    aliases: [clickspersecond]
     description: The current CPS (clicks per second) of a player.
     usage: /cps <player>

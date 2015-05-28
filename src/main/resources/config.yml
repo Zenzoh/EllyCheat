@@ -1,3 +1,11 @@
+# The clicks per second threshold to warn players with the permission 'ellycheat.cps.warning'.
 cps-warning: 25
+
+# The ticks per second threshold to warn players with the permission 'ellycheat.tps.warning'.
 tps-warning: 10
+
+# Log warnings in the console.
 log-warnings: true
+
+# Enables or disables the tracking of information in a local database.
+local-database: true
